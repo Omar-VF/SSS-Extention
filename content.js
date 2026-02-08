@@ -1,0 +1,1 @@
+console.log("Semantic Spoiler Shield is active!");

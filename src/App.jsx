@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [isActive, setIsActive] = useState(true);
+
+  // Sync with the extension's storage
+  useEffect(() => {
+    chrome.storage.local.get(['protectionActive'], (res) => {
+      setIsActive(res.protectionActive ?? true);
+    });
+  }, []);
+
+  const toggle = () => {
+    const newState = !isActive;
+    setIsActive(newState);
+    chrome.storage.local.set({ protectionActive: newState });
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div style={{ width: '220px', padding: '15px', background: '#121212', color: 'white', borderRadius: '8px' }}>
+      <h3 style={{ margin: '0 0 10px 0', fontSize: '16px' }}>Shield Control</h3>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span style={{ fontSize: '14px' }}>AI Detection</span>
+        <button 
+          onClick={toggle} 
+          style={{ 
+            backgroundColor: isActive ? '#4CAF50' : '#f44336',
+            color: 'white',
+            border: 'none',
+            padding: '5px 10px',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          {isActive ? 'ON' : 'OFF'}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
-
-export default App

@@ -30,7 +30,7 @@ Semantic Keywords: Includes a pre-built dictionary of "spoiler-heavy" terms (e.g
 Clone the repository:
 
 Bash
-git clone https://github.com/yourusername/SCube.git
+git clone https://github.com/Omar-VF/SSS-Extention.git
 Open Chrome and navigate to chrome://extensions/.
 
 Enable "Developer mode" in the top right corner.

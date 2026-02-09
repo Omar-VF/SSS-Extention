@@ -1,16 +1,55 @@
-# React + Vite
+SCube – Semantic Spoiler Shield (v1.1.0)
+Browse the web without fear. SCube is a lightweight Chrome extension that intelligently blurs spoiler-related content across any website.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🛡️ The Problem
+You’re five episodes behind on your favorite show, and one accidental scroll through a blog or social feed ruins the entire season. SCube fixes this by acting as a real-time semantic filter for your browser.
 
-Currently, two official plugins are available:
+✨ Key Features
+Dynamic Detection: Scans text in real-time, including elements hidden within the Shadow DOM.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Hover-to-Reveal: Keep the mystery alive—simply hover over blurred text to reveal it instantly.
 
-## React Compiler
+Custom Watchlists: Input specific movie or series titles to target protection.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Seamless UI: A modern dark-mode interface with green accents and smooth CSS transitions.
 
-## Expanding the ESLint configuration
+One-Click Controls: Toggle protection on/off or reset settings instantly via the popup menu.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🛠️ Technical Breakdown
+SCube is built to be lightweight and non-intrusive:
+
+Manifest V3: Built on the latest Chrome extension standards for better security and performance.
+
+MutationObserver: Monitors the DOM for dynamically loaded content (infinite scrolls, AJAX updates).
+
+Chrome Storage API: Uses storage.sync to keep your preferences consistent across devices.
+
+Semantic Keywords: Includes a pre-built dictionary of "spoiler-heavy" terms (e.g., death, twist, ending, secret).
+
+🚀 Installation (Developer Mode)
+Clone the repository:
+
+Bash
+git clone https://github.com/yourusername/SCube.git
+Open Chrome and navigate to chrome://extensions/.
+
+Enable "Developer mode" in the top right corner.
+
+Click "Load unpacked" and select the project folder.
+
+📖 Usage
+Click the SCube icon in your extension toolbar.
+
+Enter the names of the shows/movies you want to block.
+
+Ensure the Protection Toggle is set to "ON."
+
+Browse any site—spoiler-heavy sentences will be automatically blurred!
+
+🧪 Use Cases
+Social Media: Scroll through Twitter or Reddit safely after a big movie premiere.
+
+Review Sites: Read technical reviews of media without seeing plot points.
+
+News Feeds: Avoid "clickbait" headlines that reveal character deaths or twists.
+
